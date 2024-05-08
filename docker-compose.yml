@@ -1,0 +1,36 @@
+---
+version: "2.1"
+services:
+  rec_service:
+    image: rec_service:latest
+    build: ./recService
+    container_name: rec_service
+    ports:
+      - 5002:5002
+---
+version: "2.1"
+services:
+  auth_service:
+    image: auth_service:latest
+    build: ./authService
+    container_name: auth_service
+    ports:
+      - 5001:5001
+---
+version: "2.1"
+services:
+  rating_service:
+    image: rating_service:latest
+    build: ./ratingService
+    container_name: rating_service
+    ports:
+      - 5003:5003
+---
+version: "2.1"
+services:
+  site:
+    image: site:latest
+    build: ./website
+    container_name: site
+    ports:
+      - 5000:5000
